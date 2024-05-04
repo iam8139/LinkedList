@@ -6,7 +6,7 @@ public interface CircularlyLinkedList<T> {
     T first();
     T last();
     void rotate();
-    void addFirst();
-    void addLast();
+    void addFirst(T value);
+    void addLast(T value);
     T removeFirst();
 }
