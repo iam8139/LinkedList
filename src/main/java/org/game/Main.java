@@ -1,8 +1,10 @@
 package org.game;
 
 import org.game.service.CircularlyLinkedList;
+import org.game.service.DoublyLinkedList;
 import org.game.service.LinkedList;
 import org.game.serviceImpl.CircularlyLinkedListImpl;
+import org.game.serviceImpl.DoublyLinkedListImpl;
 import org.game.serviceImpl.LinkedListImpl;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -55,6 +57,31 @@ public class Main {
         }
 
         System.out.println("--------- Test Successful for Circularly LinkedList ---------");
+
+
+        // Doubly Linked List
+        System.out.println("--------- Test Started for Doubly LinkedList ---------");
+
+        DoublyLinkedList<Person<String, String>> doublyLinkedList = new DoublyLinkedListImpl<>();
+        System.out.println("Initial size: " + doublyLinkedList.size());
+        doublyLinkedList.addFirst(new Person<>("Kargil", "Indore"));
+        System.out.println("First Removed: " + doublyLinkedList.removeFirst());
+        System.out.println("First Element: " + doublyLinkedList.first());
+
+        doublyLinkedList.addFirst(new Person<>("Abhinav", "Bihar"));
+        doublyLinkedList.addLast(new Person<>("Charul", "West Bengal"));
+        doublyLinkedList.addFirst(new Person<>("Zeba", "Uttar Pradesh"));
+        doublyLinkedList.addLast(new Person<>("Kargil", "Madhya Pradesh"));
+
+        System.out.println("Updated Size: " + doublyLinkedList.size());
+        System.out.println("First: " + doublyLinkedList.first().toString());
+        System.out.println("Last: " + doublyLinkedList.last().toString());
+
+        while(!doublyLinkedList.isEmpty()) {
+            System.out.println("Doubly Linked List Element: " + doublyLinkedList.removeLast().toString());
+        }
+
+        System.out.println("--------- Test Successful for Doubly LinkedList ---------");
     }
 
     private static class Person<T, E> {
