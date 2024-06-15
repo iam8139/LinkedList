@@ -3,6 +3,8 @@ package org.game;
 import org.game.service.CircularlyLinkedList;
 import org.game.service.DoublyLinkedList;
 import org.game.service.LinkedList;
+import org.game.service.List;
+import org.game.serviceImpl.ArrayList;
 import org.game.serviceImpl.CircularlyLinkedListImpl;
 import org.game.serviceImpl.DoublyLinkedListImpl;
 import org.game.serviceImpl.LinkedListImpl;
@@ -11,6 +13,8 @@ import org.game.serviceImpl.LinkedListImpl;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
+
+        testListADT();
 
         // LinkedListTest
         System.out.println("--------- Test Started for Single LinkedList ---------");
@@ -82,6 +86,24 @@ public class Main {
         }
 
         System.out.println("--------- Test Successful for Doubly LinkedList ---------");
+    }
+
+    public static void testListADT() {
+        System.out.println("LIST ADT Test");
+
+        List<Person<String, Integer>> list = new ArrayList<>(3);
+
+        System.out.println("Empty: " + list.isEmpty() + " size: " + list.size());
+        Person<String, Integer> p1 = new Person<>("kargil", 25);
+        Person<String, Integer> p2 = new Person<>("Anand", 25);
+        Person<String, Integer> p3 = new Person<>("Anurag", 25);
+        list.add(0, p1);
+        System.out.println("Get Person: " + list.get(0));
+        System.out.println("Get Person: " + list.get(1));
+        list.set(1, p2);
+        list.add(2, p3);
+        System.out.println("Remove: " + list.remove(0) + " size: " + list.size());
+        list.set(2, p1);
     }
 
     private static class Person<T, E> {
