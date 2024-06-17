@@ -104,6 +104,7 @@ public class Main {
         list.add(2, p3);
         System.out.println("Remove: " + list.remove(0) + " size: " + list.size());
         list.set(2, p1);
+        System.out.println("Empty: " + list.isEmpty() + " size: " + list.size());
     }
 
     private static class Person<T, E> {
