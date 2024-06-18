@@ -99,6 +99,7 @@ public class Main {
         Person<String, Integer> p3 = new Person<>("Anurag", 25);
         list.add(0, p1);
         System.out.println("Get Person: " + list.get(0));
+        System.out.println("Empty: " + list.isEmpty() + " size: " + list.size());
         System.out.println("Get Person: " + list.get(1));
         list.set(1, p2);
         list.add(2, p3);
