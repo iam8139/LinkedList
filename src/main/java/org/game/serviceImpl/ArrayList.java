@@ -2,6 +2,9 @@ package org.game.serviceImpl;
 
 import org.game.service.List;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 public class ArrayList<T> implements List<T> {
     private static final int CAPACITY = 16;
     T[] arr;
@@ -61,5 +64,32 @@ public class ArrayList<T> implements List<T> {
 
     protected void checkIndex(int i) {
         if (i < 0 || i >= arr.length) throw new IndexOutOfBoundsException("Illegal Index: " + i);
+    }
+
+    public Iterator<T> iterator() {
+        return new ArrayIterator();
+    }
+
+    private class ArrayIterator implements Iterator<T> {
+        private int j = 0;
+        private boolean removable = false;
+
+        @Override
+        public boolean hasNext() {
+            return j < size;
+        }
+
+        public T next() {
+            if (j == size) throw new NoSuchElementException("No Element Left");
+            removable = true;
+            return arr[j++];
+        }
+
+        @Override
+        public void remove() {
+            if (!removable) throw new IllegalStateException("No Such Element to Remove");
+            arr[j--] = null;
+            removable = false;
+        }
     }
 }
